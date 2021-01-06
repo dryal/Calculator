@@ -113,7 +113,8 @@ public class RomanNumerals  implements CalculateOperations{
             try {
                 throw new WrongStringFormatException("Wrong string format");
             } catch (WrongStringFormatException e) {
-                System.out.println("Неверный формат строки: Строка должна содержать только 2 операнда" +
+                System.out.println("ошибочную строку\nОшибка: " +
+                        "Неверный формат строки: Строка должна содержать только 2 операнда" +
                         "\nи 1 оператор из \"+, -, *, /\" между ними. Через пробелы.");
             }
             System.exit(0);
@@ -136,7 +137,8 @@ public class RomanNumerals  implements CalculateOperations{
                     || nextElement.equals("*") || nextElement.equals("/"))
                     && i % 2 == 1) {
                 System.out.print(nextElement);
-            } else {
+            }
+            else {
                 System.out.println();
                 return false;
             }

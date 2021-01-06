@@ -32,7 +32,8 @@ public class ArabicNumerals implements CalculateOperations {
             try {
                 throw new WrongStringFormatException("Wrong string format");
             } catch (WrongStringFormatException e) {
-                System.out.println("Неверный формат строки: Строка должна содержать только 2 операнда" +
+                System.out.println("ошибочную строку\nОшибка:Неверный формат строки: " +
+                        "Строка должна содержать только 2 операнда" +
                         "\nи 1 оператор из \"+, -, *, /\" между ними. Через пробелы.");
             }
             System.exit(0);
@@ -59,9 +60,10 @@ public class ArabicNumerals implements CalculateOperations {
                 }
                 else {
                     try {
-                        throw new ZeroToTenBoundsException("Bounds from 0 to 10");
-                    } catch (ZeroToTenBoundsException e) {
-                        System.out.println("0\nОшибка: Должны использоваться числа от 0 до 10.");
+                        throw new OneToTenBoundsException("Bounds from 1 to 10");
+                    } catch (OneToTenBoundsException e) {
+                        System.out.println("большое или маленькое число" +
+                                "\nОшибка: Должны использоваться числа от 1 до 10.");
                     }
                     System.out.println();
                     System.exit(0);

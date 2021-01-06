@@ -1,8 +1,8 @@
 package com.company;
 
-public class ZeroToTenBoundsException extends Exception{
+public class OneToTenBoundsException extends Exception{
     private String message;
-    public ZeroToTenBoundsException(String message){
+    public OneToTenBoundsException(String message){
         super(message);
         this.message = message;
     }
