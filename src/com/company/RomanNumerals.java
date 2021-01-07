@@ -33,7 +33,7 @@ enum Rome {
 
     static String convertFromInt(int src) {
         String result = "";
-        int count, tmp = src;
+        int count;
         // смотрим наличие сотни и полусотни
         if(src / 50 != 0){
             count = src / 50;
