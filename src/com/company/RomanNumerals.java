@@ -6,7 +6,8 @@ import java.util.Scanner;
 
 enum Rome {
     I(1), II(2), III(3), IV(4), V(5),
-    VI(6), VII(7), VIII(8), IX(9), X(10);
+    VI(6), VII(7), VIII(8), IX(9), X(10),
+    L(50), C(100);
     private int value;
 
     Rome(int value) {
@@ -32,13 +33,34 @@ enum Rome {
 
     static String convertFromInt(int src) {
         String result = "";
-        int tmp = src;
+        int count, tmp = src;
+        // смотрим наличие сотни и полусотни
+        if(src / 50 != 0){
+            count = src / 50;
+            src -= 50 * count;
+            if(count == 2)
+                result = result.concat(C.name());
+            else
+                result = result.concat(L.name());
+        }
+        if (src == 0) return result;
         // смотрим, сколько раз встречается 10
         if (src / 10 != 0) {
-            int count = src / 10;
+            count = src / 10;
             src -= 10 * count;
-            for (int i = 0; i < count; i++) {
-                result = result.concat(X.name());
+            // проверка остатка на ровно 40
+            if(L.value - 10 * count == 10 && result.equals("L")) {
+                result = "";
+                result = result.concat(X.name()) + result.concat(C.name());
+            }
+            else if(L.value - 10 * count == 10 && result.equals("")) {
+                result = "";
+                result = result.concat(X.name()) + result.concat(L.name());
+            }
+            else {
+                for (int i = 0; i < count; i++) {
+                    result = result.concat(X.name());
+                }
             }
         }
         if(src == 0) return result;
